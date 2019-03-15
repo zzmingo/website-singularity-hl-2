@@ -38,6 +38,10 @@
     "name": {
       "default": "",
       "type": "string"
+    },
+    "component": {
+      "default": "",
+      "type": "string"
     }
   }
 }
