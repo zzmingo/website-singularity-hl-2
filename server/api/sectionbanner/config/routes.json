@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/sectionbanners",
+      "handler": "Sectionbanner.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sectionbanners/count",
+      "handler": "Sectionbanner.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sectionbanners/:id",
+      "handler": "Sectionbanner.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/sectionbanners",
+      "handler": "Sectionbanner.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/sectionbanners/:id",
+      "handler": "Sectionbanner.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/sectionbanners/:id",
+      "handler": "Sectionbanner.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

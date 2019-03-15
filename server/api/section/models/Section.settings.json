@@ -1,0 +1,30 @@
+{
+  "connection": "default",
+  "collectionName": "sections",
+  "info": {
+    "name": "section",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "type": {
+      "default": "",
+      "type": "enumeration",
+      "enum": [
+        "banner"
+      ]
+    },
+    "name": {
+      "default": "",
+      "type": "text"
+    },
+    "part": {
+      "model": "part",
+      "via": "sections"
+    }
+  }
+}
