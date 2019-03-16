@@ -57,7 +57,7 @@ export default {
   > .content {
     margin: 0 auto;
     max-width: 700px;
-    padding: 40px 0;
+    padding: 10px 0 40px 0;
 
     > h2 {
       margin-top: 30px;

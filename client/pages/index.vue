@@ -25,7 +25,7 @@
       <div class="title">{{website.title_for_index_section3}}</div>
       <div class="description">{{website.description_for_index_section3}}</div>
       <div class="more">
-        <SLButton class="contact-btn" :label="$string('contact-us')" long large></SLButton>
+        <SLButton class="contact-btn" :label="$string('contact-us')" long large @click.native="$router.push('about')"></SLButton>
       </div>
     </div>
   </div>
@@ -73,10 +73,10 @@ export default {
 
   .title {
     color: white;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     text-shadow: 0px 0px 5px #000000;
-    width: 400px;
+    width: 520px;
     margin-left: 120px;
     font-size: OpenSans;
   }
