@@ -1,21 +1,26 @@
 <template>
-  <div class="page whatwedo">
+  <div class="page about-us">
     <div class="content">
-      <h2>{{website.what_we_do_title}}</h2>
+      <h2>{{website.about_us_goals_title}}</h2>
       <p class="desc">
-        {{website.what_we_do_description}}
+        <ul class="goals">
+          <li v-for="(item, idx) in website.about_us_goals" :key="idx">{{item}}</li>
+        </ul>
       </p>
-      <img class="cover" :src="imgBaseUrl + website.what_we_do_image.url">
-
-      <div class="sections">
-        <div class="section" v-for="(section, idx) in website.what_we_do_sections" :key="idx" :class="{ reverse: idx % 2 == 1 }">
-          <div class="info">
-            <h3>{{section.title}}</h3>
-            <p class="desc">{{section.content}}</p>
-          </div>
-          <div class="image" :style="getSectionImageStyle(section)"></div>
-        </div>
-      </div>
+      <img class="cover" :src="imgBaseUrl + website.about_us_goals_cover.url">
+      <h2>{{website.about_us_team_title}}</h2>
+      <p class="desc">
+        {{website.about_us_team_description}}
+      </p>
+      <img class="cover" :src="imgBaseUrl + website.about_us_team_cover.url">
+      <h2>{{website.about_us_contact_title}}</h2>
+      <p class="desc">
+        {{website.about_us_contact_description}}
+      </p>
+      <p class="address">
+        {{website.address}}<br/>
+        {{website.email}}
+      </p>
     </div>
   </div>
 </template>
@@ -48,7 +53,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.whatwedo {
+.about-us {
   background-color: white;
 
   > .content {
@@ -57,6 +62,7 @@ export default {
     padding: 40px 0;
 
     > h2 {
+      margin-top: 30px;
       font-size: 28px;
       font-weight: bold;
       color: #3c3951;
@@ -67,47 +73,24 @@ export default {
       color: #58566a;
     }
 
+    .goals {
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+    }
+
     > .cover {
       width: 100%;
       padding: 20px;
     }
 
-    .section {
-      display: flex;
-      flex-direction: row;
-      min-height: 200px;
-      justify-content: stretch;
-
-      .info {
-        flex: 1.1;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: 30px 30px 30px 0;
-
-        h3 {
-          font-size: 28px;
-          font-weight: bold;
-          color: #3c3951;   
-        }
-
-        > .desc {
-          font-size: 14px;
-          color: #58566a;
-        }
-
-      }
-
-      .image {
-        flex: 1;
-        background-position: center;
-        background-size: 70%;
-        background-repeat: no-repeat;
-      }
-
-      &.reverse {
-        flex-direction: row-reverse;
-      }
+    .address {
+      font-size: 14px;
+      color: #58566a;
     }
   }
 }
