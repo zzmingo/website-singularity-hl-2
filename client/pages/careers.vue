@@ -14,8 +14,9 @@
       </div>
       <div class="jobs">
         <div class="list">
-          <div class="item">
-
+          <div class="item" v-for="(job, idx) in jobs" :key="idx" @click="onClick(job)">
+            <div class="name">{{job.name}}</div>
+            <div class="address">{{job.address}}</div>
           </div>
         </div>
       </div>
@@ -38,8 +39,13 @@ export default {
     console.log(data[0])
     store.commit('setWebsite', data[0])
   },
-  async asyncData ({ }) {
-
+  async asyncData ({ $axios }) {
+    return $axios.$get('/jobs').then(data => {
+      console.log(data)
+      return {
+        jobs: data
+      }
+    })
   },
   computed: {
     bannerStyle() {
@@ -47,6 +53,11 @@ export default {
         backgroundImage: `url(${this.imgBaseUrl}${this.website.careers_banner.url})`
       }
     },
+  },
+  methods: {
+    onClick(job) {
+      console.log(job, this.$router)
+    }
   }
 }
 </script>
@@ -123,6 +134,37 @@ export default {
 .jobs {
   background-color: #f6f6f6;
 
+  .list {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+
+    .item {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px;
+      cursor: pointer;
+      color: #3c3951;
+      transition: background-color 0.2s, color 0.2s;
+
+      &:hover {
+        background: #7198d6;
+        color: white;
+      }
+
+      .name {
+        flex: 1;
+        padding-right: 60px;
+        font-size: 18px;
+      }
+
+      .address {
+        font-size: 14px;
+      }
+    }
+  }
 }
 
 </style>
