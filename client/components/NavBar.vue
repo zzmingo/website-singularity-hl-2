@@ -3,10 +3,10 @@
         <logo />
         <div class="right">
           <ol class="navs">
-            <li class="active">{{$string('home')}}</li>
-            <li>{{$string('whatwedo')}}</li>
-            <li>{{$string('about')}}</li>
-            <li>{{$string('careers')}}</li>
+            <li @click="navigateTo('/')">{{$string('home')}}</li>
+            <li @click="navigateTo('/whatwedo')">{{$string('whatwedo')}}</li>
+            <li @click="navigateTo('/about')">{{$string('about')}}</li>
+            <li @click="navigateTo('/careers')">{{$string('careers')}}</li>
           </ol>
         </div>
     </div>
@@ -17,7 +17,12 @@ export default {
   components: {
     Logo
   },
-  props: ['info']
+  props: ['info'],
+  methods: {
+    navigateTo(path) {
+      this.$router.push(path)
+    }
+  }
 }
 </script>
 
