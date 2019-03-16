@@ -16,6 +16,9 @@
 
 export default {
   async fetch ({ store, params, $axios }) {
+    let strings = await $axios.$get(`/strings`)
+    store.commit('setStrings', strings)
+    console.log(strings)
     let data = await $axios.$get(`/websites?language=en`)
     console.log(data[0])
     store.commit('setWebsite', data[0])

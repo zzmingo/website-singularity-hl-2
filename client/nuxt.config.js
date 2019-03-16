@@ -15,8 +15,9 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: "stylesheet", href: "/css/bootstrap.min.css", integrity: "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", crossorigin:"anonymous" }
+    ],
   },
 
   /*
@@ -28,14 +29,17 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'iview/dist/styles/iview.css'
   ],
+
+  env: {
+    imgBaseUrl: 'http://localhost:1337',
+  },
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/iview'
+    '~plugins/extend.js'
   ],
 
   /*
