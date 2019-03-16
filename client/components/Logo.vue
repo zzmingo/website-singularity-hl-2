@@ -1,5 +1,5 @@
 <template>
-  <img class="logo" src="~/assets/logo.png">
+  <img class="logo" :src="$store.state.website.logo.url">
 </template>
 
 <style lang="less" scoped>
