@@ -1,8 +1,8 @@
-/* global Sectionbanner */
+/* global Website */
 'use strict';
 
 /**
- * Sectionbanner.js service
+ * Website.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -16,20 +16,20 @@ const utils = require('strapi-hook-bookshelf/lib/utils/');
 module.exports = {
 
   /**
-   * Promise to fetch all sectionbanners.
+   * Promise to fetch all websites.
    *
    * @return {Promise}
    */
 
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Bookshelf.
-    const filters = strapi.utils.models.convertParams('sectionbanner', params);
+    const filters = strapi.utils.models.convertParams('website', params);
     // Select field to populate.
-    const populate = Sectionbanner.associations
+    const populate = Website.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias);
 
-    return Sectionbanner.query(function(qb) {
+    return Website.query(function(qb) {
       _.forEach(filters.where, (where, key) => {
         if (_.isArray(where.value) && where.symbol !== 'IN' && where.symbol !== 'NOT IN') {
           for (const value in where.value) {
@@ -52,33 +52,33 @@ module.exports = {
   },
 
   /**
-   * Promise to fetch a/an sectionbanner.
+   * Promise to fetch a/an website.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Sectionbanner.associations
+    const populate = Website.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias);
 
-    return Sectionbanner.forge(_.pick(params, 'id')).fetch({
+    return Website.forge(_.pick(params, 'id')).fetch({
       withRelated: populate
     });
   },
 
   /**
-   * Promise to count a/an sectionbanner.
+   * Promise to count a/an website.
    *
    * @return {Promise}
    */
 
   count: (params) => {
     // Convert `params` object to filters compatible with Bookshelf.
-    const filters = strapi.utils.models.convertParams('sectionbanner', params);
+    const filters = strapi.utils.models.convertParams('website', params);
 
-    return Sectionbanner.query(function(qb) {
+    return Website.query(function(qb) {
       _.forEach(filters.where, (where, key) => {
         if (_.isArray(where.value)) {
           for (const value in where.value) {
@@ -92,50 +92,50 @@ module.exports = {
   },
 
   /**
-   * Promise to add a/an sectionbanner.
+   * Promise to add a/an website.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Sectionbanner.associations.map(ast => ast.alias));
-    const data = _.omit(values, Sectionbanner.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Website.associations.map(ast => ast.alias));
+    const data = _.omit(values, Website.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Sectionbanner.forge(data).save();
+    const entry = await Website.forge(data).save();
 
     // Create relational data and return the entry.
-    return Sectionbanner.updateRelations({ id: entry.id , values: relations });
+    return Website.updateRelations({ id: entry.id , values: relations });
   },
 
   /**
-   * Promise to edit a/an sectionbanner.
+   * Promise to edit a/an website.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Sectionbanner.associations.map(ast => ast.alias));
-    const data = _.omit(values, Sectionbanner.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Website.associations.map(ast => ast.alias));
+    const data = _.omit(values, Website.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Sectionbanner.forge(params).save(data);
+    const entry = await Website.forge(params).save(data);
 
     // Create relational data and return the entry.
-    return Sectionbanner.updateRelations(Object.assign(params, { values: relations }));
+    return Website.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an sectionbanner.
+   * Promise to remove a/an website.
    *
    * @return {Promise}
    */
 
   remove: async (params) => {
     params.values = {};
-    Sectionbanner.associations.map(association => {
+    Website.associations.map(association => {
       switch (association.nature) {
         case 'oneWay':
         case 'oneToOne':
@@ -152,45 +152,45 @@ module.exports = {
       }
     });
 
-    await Sectionbanner.updateRelations(params);
+    await Website.updateRelations(params);
 
-    return Sectionbanner.forge(params).destroy();
+    return Website.forge(params).destroy();
   },
 
   /**
-   * Promise to search a/an sectionbanner.
+   * Promise to search a/an website.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Bookshelf.
-    const filters = strapi.utils.models.convertParams('sectionbanner', params);
+    const filters = strapi.utils.models.convertParams('website', params);
     // Select field to populate.
-    const populate = Sectionbanner.associations
+    const populate = Website.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias);
 
-    const associations = Sectionbanner.associations.map(x => x.alias);
-    const searchText = Object.keys(Sectionbanner._attributes)
-      .filter(attribute => attribute !== Sectionbanner.primaryKey && !associations.includes(attribute))
-      .filter(attribute => ['string', 'text'].includes(Sectionbanner._attributes[attribute].type));
+    const associations = Website.associations.map(x => x.alias);
+    const searchText = Object.keys(Website._attributes)
+      .filter(attribute => attribute !== Website.primaryKey && !associations.includes(attribute))
+      .filter(attribute => ['string', 'text'].includes(Website._attributes[attribute].type));
 
-    const searchNoText = Object.keys(Sectionbanner._attributes)
-      .filter(attribute => attribute !== Sectionbanner.primaryKey && !associations.includes(attribute))
-      .filter(attribute => !['string', 'text', 'boolean', 'integer', 'decimal', 'float'].includes(Sectionbanner._attributes[attribute].type));
+    const searchNoText = Object.keys(Website._attributes)
+      .filter(attribute => attribute !== Website.primaryKey && !associations.includes(attribute))
+      .filter(attribute => !['string', 'text', 'boolean', 'integer', 'decimal', 'float'].includes(Website._attributes[attribute].type));
 
-    const searchInt = Object.keys(Sectionbanner._attributes)
-      .filter(attribute => attribute !== Sectionbanner.primaryKey && !associations.includes(attribute))
-      .filter(attribute => ['integer', 'decimal', 'float'].includes(Sectionbanner._attributes[attribute].type));
+    const searchInt = Object.keys(Website._attributes)
+      .filter(attribute => attribute !== Website.primaryKey && !associations.includes(attribute))
+      .filter(attribute => ['integer', 'decimal', 'float'].includes(Website._attributes[attribute].type));
 
-    const searchBool = Object.keys(Sectionbanner._attributes)
-      .filter(attribute => attribute !== Sectionbanner.primaryKey && !associations.includes(attribute))
-      .filter(attribute => ['boolean'].includes(Sectionbanner._attributes[attribute].type));
+    const searchBool = Object.keys(Website._attributes)
+      .filter(attribute => attribute !== Website.primaryKey && !associations.includes(attribute))
+      .filter(attribute => ['boolean'].includes(Website._attributes[attribute].type));
 
     const query = (params._q || '').replace(/[^a-zA-Z0-9.-\s]+/g, '');
 
-    return Sectionbanner.query(qb => {
+    return Website.query(qb => {
       // Search in columns which are not text value.
       searchNoText.forEach(attribute => {
         qb.orWhereRaw(`LOWER(${attribute}) LIKE '%${_.toLower(query)}%'`);
@@ -209,7 +209,7 @@ module.exports = {
       }
 
       // Search in columns with text using index.
-      switch (Sectionbanner.client) {
+      switch (Website.client) {
         case 'mysql':
           qb.orWhereRaw(`MATCH(${searchText.join(',')}) AGAINST(? IN BOOLEAN MODE)`, `*${query}*`);
           break;

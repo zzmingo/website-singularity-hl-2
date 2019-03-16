@@ -1,8 +1,8 @@
 {
   "connection": "default",
-  "collectionName": "sections",
+  "collectionName": "strings",
   "info": {
-    "name": "section",
+    "name": "strings",
     "description": ""
   },
   "options": {
@@ -11,20 +11,17 @@
     "comment": ""
   },
   "attributes": {
-    "type": {
+    "key": {
       "default": "",
-      "type": "enumeration",
-      "enum": [
-        "banner"
-      ]
+      "type": "string"
     },
-    "name": {
+    "en": {
       "default": "",
       "type": "text"
     },
-    "part": {
-      "model": "part",
-      "via": "sections"
+    "zh-cn": {
+      "default": "",
+      "type": "text"
     }
   }
 }

@@ -10,7 +10,7 @@
 export default {
   data() {
     return {
-      title: 'Revolutionizing Precision Medicine with  Artificial Intelligenc'
+      title: ''
     }
   }
 }

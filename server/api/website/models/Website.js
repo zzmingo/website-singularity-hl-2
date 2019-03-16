@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `Section` model.
+ * Lifecycle callbacks for the `Website` model.
  */
 
 module.exports = {

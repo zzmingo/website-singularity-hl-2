@@ -1,8 +1,8 @@
-/* global Section */
+/* global Strings */
 'use strict';
 
 /**
- * Section.js service
+ * Strings.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -16,20 +16,20 @@ const utils = require('strapi-hook-bookshelf/lib/utils/');
 module.exports = {
 
   /**
-   * Promise to fetch all sections.
+   * Promise to fetch all strings.
    *
    * @return {Promise}
    */
 
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Bookshelf.
-    const filters = strapi.utils.models.convertParams('section', params);
+    const filters = strapi.utils.models.convertParams('strings', params);
     // Select field to populate.
-    const populate = Section.associations
+    const populate = Strings.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias);
 
-    return Section.query(function(qb) {
+    return Strings.query(function(qb) {
       _.forEach(filters.where, (where, key) => {
         if (_.isArray(where.value) && where.symbol !== 'IN' && where.symbol !== 'NOT IN') {
           for (const value in where.value) {
@@ -52,33 +52,33 @@ module.exports = {
   },
 
   /**
-   * Promise to fetch a/an section.
+   * Promise to fetch a/an strings.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Section.associations
+    const populate = Strings.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias);
 
-    return Section.forge(_.pick(params, 'id')).fetch({
+    return Strings.forge(_.pick(params, 'id')).fetch({
       withRelated: populate
     });
   },
 
   /**
-   * Promise to count a/an section.
+   * Promise to count a/an strings.
    *
    * @return {Promise}
    */
 
   count: (params) => {
     // Convert `params` object to filters compatible with Bookshelf.
-    const filters = strapi.utils.models.convertParams('section', params);
+    const filters = strapi.utils.models.convertParams('strings', params);
 
-    return Section.query(function(qb) {
+    return Strings.query(function(qb) {
       _.forEach(filters.where, (where, key) => {
         if (_.isArray(where.value)) {
           for (const value in where.value) {
@@ -92,50 +92,50 @@ module.exports = {
   },
 
   /**
-   * Promise to add a/an section.
+   * Promise to add a/an strings.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Section.associations.map(ast => ast.alias));
-    const data = _.omit(values, Section.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Strings.associations.map(ast => ast.alias));
+    const data = _.omit(values, Strings.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Section.forge(data).save();
+    const entry = await Strings.forge(data).save();
 
     // Create relational data and return the entry.
-    return Section.updateRelations({ id: entry.id , values: relations });
+    return Strings.updateRelations({ id: entry.id , values: relations });
   },
 
   /**
-   * Promise to edit a/an section.
+   * Promise to edit a/an strings.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Section.associations.map(ast => ast.alias));
-    const data = _.omit(values, Section.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Strings.associations.map(ast => ast.alias));
+    const data = _.omit(values, Strings.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Section.forge(params).save(data);
+    const entry = await Strings.forge(params).save(data);
 
     // Create relational data and return the entry.
-    return Section.updateRelations(Object.assign(params, { values: relations }));
+    return Strings.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an section.
+   * Promise to remove a/an strings.
    *
    * @return {Promise}
    */
 
   remove: async (params) => {
     params.values = {};
-    Section.associations.map(association => {
+    Strings.associations.map(association => {
       switch (association.nature) {
         case 'oneWay':
         case 'oneToOne':
@@ -152,45 +152,45 @@ module.exports = {
       }
     });
 
-    await Section.updateRelations(params);
+    await Strings.updateRelations(params);
 
-    return Section.forge(params).destroy();
+    return Strings.forge(params).destroy();
   },
 
   /**
-   * Promise to search a/an section.
+   * Promise to search a/an strings.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Bookshelf.
-    const filters = strapi.utils.models.convertParams('section', params);
+    const filters = strapi.utils.models.convertParams('strings', params);
     // Select field to populate.
-    const populate = Section.associations
+    const populate = Strings.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias);
 
-    const associations = Section.associations.map(x => x.alias);
-    const searchText = Object.keys(Section._attributes)
-      .filter(attribute => attribute !== Section.primaryKey && !associations.includes(attribute))
-      .filter(attribute => ['string', 'text'].includes(Section._attributes[attribute].type));
+    const associations = Strings.associations.map(x => x.alias);
+    const searchText = Object.keys(Strings._attributes)
+      .filter(attribute => attribute !== Strings.primaryKey && !associations.includes(attribute))
+      .filter(attribute => ['string', 'text'].includes(Strings._attributes[attribute].type));
 
-    const searchNoText = Object.keys(Section._attributes)
-      .filter(attribute => attribute !== Section.primaryKey && !associations.includes(attribute))
-      .filter(attribute => !['string', 'text', 'boolean', 'integer', 'decimal', 'float'].includes(Section._attributes[attribute].type));
+    const searchNoText = Object.keys(Strings._attributes)
+      .filter(attribute => attribute !== Strings.primaryKey && !associations.includes(attribute))
+      .filter(attribute => !['string', 'text', 'boolean', 'integer', 'decimal', 'float'].includes(Strings._attributes[attribute].type));
 
-    const searchInt = Object.keys(Section._attributes)
-      .filter(attribute => attribute !== Section.primaryKey && !associations.includes(attribute))
-      .filter(attribute => ['integer', 'decimal', 'float'].includes(Section._attributes[attribute].type));
+    const searchInt = Object.keys(Strings._attributes)
+      .filter(attribute => attribute !== Strings.primaryKey && !associations.includes(attribute))
+      .filter(attribute => ['integer', 'decimal', 'float'].includes(Strings._attributes[attribute].type));
 
-    const searchBool = Object.keys(Section._attributes)
-      .filter(attribute => attribute !== Section.primaryKey && !associations.includes(attribute))
-      .filter(attribute => ['boolean'].includes(Section._attributes[attribute].type));
+    const searchBool = Object.keys(Strings._attributes)
+      .filter(attribute => attribute !== Strings.primaryKey && !associations.includes(attribute))
+      .filter(attribute => ['boolean'].includes(Strings._attributes[attribute].type));
 
     const query = (params._q || '').replace(/[^a-zA-Z0-9.-\s]+/g, '');
 
-    return Section.query(qb => {
+    return Strings.query(qb => {
       // Search in columns which are not text value.
       searchNoText.forEach(attribute => {
         qb.orWhereRaw(`LOWER(${attribute}) LIKE '%${_.toLower(query)}%'`);
@@ -209,7 +209,7 @@ module.exports = {
       }
 
       // Search in columns with text using index.
-      switch (Section.client) {
+      switch (Strings.client) {
         case 'mysql':
           qb.orWhereRaw(`MATCH(${searchText.join(',')}) AGAINST(? IN BOOLEAN MODE)`, `*${query}*`);
           break;

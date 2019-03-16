@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/sectionbanners",
-      "handler": "Sectionbanner.find",
+      "path": "/strings",
+      "handler": "Strings.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/sectionbanners/count",
-      "handler": "Sectionbanner.count",
+      "path": "/strings/count",
+      "handler": "Strings.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/sectionbanners/:id",
-      "handler": "Sectionbanner.findOne",
+      "path": "/strings/:id",
+      "handler": "Strings.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/sectionbanners",
-      "handler": "Sectionbanner.create",
+      "path": "/strings",
+      "handler": "Strings.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/sectionbanners/:id",
-      "handler": "Sectionbanner.update",
+      "path": "/strings/:id",
+      "handler": "Strings.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/sectionbanners/:id",
-      "handler": "Sectionbanner.destroy",
+      "path": "/strings/:id",
+      "handler": "Strings.destroy",
       "config": {
         "policies": []
       }

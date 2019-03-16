@@ -1,0 +1,74 @@
+{
+  "connection": "default",
+  "collectionName": "websites",
+  "info": {
+    "name": "website",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "language": {
+      "default": "",
+      "type": "enumeration",
+      "enum": [
+        "en",
+        "zh-cn"
+      ]
+    },
+    "name": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
+    },
+    "index-banner": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "title-for-index-banner": {
+      "default": "",
+      "type": "text"
+    },
+    "title-for-index-section1": {
+      "default": "",
+      "type": "string"
+    },
+    "description-for-index-section1": {
+      "default": "",
+      "type": "text"
+    },
+    "title-for-index-section2": {
+      "default": "",
+      "type": "string"
+    },
+    "description-for-index-section2": {
+      "default": "",
+      "type": "text"
+    },
+    "image-for-index-section2": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "title-for-index-section3": {
+      "default": "",
+      "type": "string"
+    },
+    "description-for-index-section3": {
+      "default": "",
+      "type": "text"
+    }
+  }
+}
