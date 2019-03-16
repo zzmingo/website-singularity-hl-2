@@ -14,7 +14,7 @@
       </div>
       <div class="jobs">
         <div class="list">
-          <div class="item" v-for="(job, idx) in jobs" :key="idx" @click="onClick(job)">
+          <div class="item" v-for="(job, idx) in jobs" :key="idx" @click="onClickJob(job)">
             <div class="name">{{job.name}}</div>
             <div class="address">{{job.address}}</div>
           </div>
@@ -55,8 +55,8 @@ export default {
     },
   },
   methods: {
-    onClick(job) {
-      console.log(job, this.$router)
+    onClickJob(job) {
+      this.$router.push(`/jobs/${job.id}`)
     }
   }
 }

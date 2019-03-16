@@ -12,6 +12,7 @@ export default {
     SLButton
   },
   async fetch ({ store, params, $axios }) {
+    console.log(params)
     let strings = await $axios.$get(`/strings`)
     store.commit('setStrings', strings)
     console.log(strings)

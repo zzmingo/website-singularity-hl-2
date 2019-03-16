@@ -6,10 +6,10 @@ Vue.mixin({
       return process.env.imgBaseUrl
     },
     website() {
-      return this.$store.state.website
+      return this.$store && this.$store.state.website || {}
     },
     lang() {
-      return this.$store.state.lang
+      return this.$store && this.$store.state.lang || 'en'
     }
   }
 })
