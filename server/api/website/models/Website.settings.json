@@ -75,6 +75,68 @@
       "via": "related",
       "plugin": "upload",
       "required": true
+    },
+    "what_we_do_title": {
+      "default": "",
+      "type": "string"
+    },
+    "what_we_do_description": {
+      "default": "",
+      "type": "text"
+    },
+    "what_we_do_sections": {
+      "collection": "section",
+      "via": "website"
+    },
+    "what_we_do_image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "about_us_goals_title": {
+      "default": "",
+      "type": "string"
+    },
+    "about_us_goals": {
+      "default": "",
+      "type": "json"
+    },
+    "about_us_team_title": {
+      "default": "",
+      "type": "string"
+    },
+    "about_us_team_cover": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "about_us_team_description": {
+      "default": "",
+      "type": "text"
+    },
+    "about_us_contact_title": {
+      "default": "",
+      "type": "string"
+    },
+    "about_us_contact_description": {
+      "default": "",
+      "type": "text"
+    },
+    "address": {
+      "default": "",
+      "type": "string"
+    },
+    "email": {
+      "default": "",
+      "type": "email"
+    },
+    "about_us_goals_cover": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }

@@ -1,0 +1,33 @@
+{
+  "connection": "default",
+  "collectionName": "sections",
+  "info": {
+    "name": "section",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string"
+    },
+    "content": {
+      "default": "",
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
+    },
+    "website": {
+      "model": "website",
+      "via": "what_we_do_sections"
+    }
+  }
+}
