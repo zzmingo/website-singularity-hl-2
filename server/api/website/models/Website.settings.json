@@ -137,6 +137,20 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "careers_banner_title": {
+      "default": "",
+      "type": "string"
+    },
+    "careers_banner_description": {
+      "default": "",
+      "type": "text"
+    },
+    "careers_banner": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }

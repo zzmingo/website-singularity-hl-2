@@ -35,8 +35,6 @@ export default {
     store.commit('setStrings', strings)
     console.log(strings)
     let data = await $axios.$get(`/websites?language=${store.state.lang}`)
-    let sections = await $axios.$get(`/sections`)
-    data[0].what_we_do_sections = sections
     console.log(data[0])
     store.commit('setWebsite', data[0])
   },

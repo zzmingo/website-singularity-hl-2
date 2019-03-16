@@ -65,7 +65,7 @@ export default {
 .sec-banner {
   background-size: cover;
   background-position: center;
-  height: 405px;
+  height: 460px;
 
   display: flex;
   align-items: center;

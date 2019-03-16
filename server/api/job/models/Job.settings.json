@@ -1,0 +1,31 @@
+{
+  "connection": "default",
+  "collectionName": "jobs",
+  "info": {
+    "name": "job",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "intro": {
+      "default": "",
+      "type": "text"
+    },
+    "address": {
+      "default": "",
+      "type": "text"
+    },
+    "visible": {
+      "default": false,
+      "type": "boolean"
+    }
+  }
+}
