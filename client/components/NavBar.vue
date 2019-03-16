@@ -8,10 +8,6 @@
             <li>{{$string('about')}}</li>
             <li>{{$string('careers')}}</li>
           </ol>
-          <ol class="lang">
-            <li>{{$string('about')}}</li>
-            <li>{{$string('careers')}}</li>
-          </ol>
         </div>
     </div>
 </template>
@@ -46,6 +42,7 @@ export default {
     @active-color: #3c3951;
 
     flex: 1;
+    max-width: 500px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -58,7 +55,7 @@ export default {
       @border-bottom-width: 3px;
 
       min-width: 70px;
-      height: 32px;
+      height: 30px;
       text-align: center;
       list-style: none;
       border-bottom: @border-bottom-width solid transparent;

@@ -30,45 +30,51 @@
       "plugin": "upload",
       "required": true
     },
-    "index-banner": {
+    "index_banner": {
       "model": "file",
       "via": "related",
       "plugin": "upload",
       "required": false
     },
-    "title-for-index-banner": {
+    "title_for_index_banner": {
       "default": "",
       "type": "text"
     },
-    "title-for-index-section1": {
+    "title_for_index_section1": {
       "default": "",
       "type": "string"
     },
-    "description-for-index-section1": {
+    "description_for_index_section1": {
       "default": "",
       "type": "text"
     },
-    "title-for-index-section2": {
+    "title_for_index_section2": {
       "default": "",
       "type": "string"
     },
-    "description-for-index-section2": {
-      "default": "",
-      "type": "text"
-    },
-    "image-for-index-section2": {
+    "image_for_index_section2": {
       "model": "file",
       "via": "related",
       "plugin": "upload",
       "required": false
     },
-    "title-for-index-section3": {
+    "title_for_index_section3": {
       "default": "",
       "type": "string"
     },
-    "description-for-index-section3": {
+    "description_for_index_section3": {
       "default": "",
       "type": "text"
+    },
+    "items_for_index_section2": {
+      "default": "",
+      "type": "json"
+    },
+    "logo_light": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
     }
   }
 }

@@ -1,13 +1,8 @@
 <template>
-  <img class="logo" :src="imgBaseUrl + $store.state.website.logo.url">
+  <img class="logo" :src="imgBaseUrl + website.logo.url">
 </template>
 <script>
 export default {
-  computed: {
-    imgBaseUrl() {
-      return process.env.imgBaseUrl
-    }
-  }
 }
 </script>
 
