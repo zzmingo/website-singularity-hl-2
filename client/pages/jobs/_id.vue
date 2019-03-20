@@ -70,14 +70,14 @@ export default {
 .header {
 
   border-bottom: 1px solid #9d9d9d;
+  padding: 0 20px 5px 20px;
   
   .info {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     max-width: 900px;
     margin: 0 auto;
-    align-items: flex-end;
-    padding-top: 60px;
+    align-items: flex-start;
   }
 
   .name {
@@ -85,7 +85,6 @@ export default {
     color: #3c3951;
     font-size: 18px;
     font-weight: bold;
-    padding-right: 50px;
   }
   .address {
     color: #7198d6;
@@ -97,8 +96,20 @@ export default {
   padding-bottom: 100px;
 
   .intro-info {
-    max-width: 700px;
+    max-width: 740px;
     margin: 0 auto;
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding-top: 40px;
+    .info {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 }
 </style>

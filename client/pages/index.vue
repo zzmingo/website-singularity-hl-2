@@ -67,18 +67,19 @@ export default {
   background-position: center;
   height: 460px;
 
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 
   .title {
+    width: 86%;
     color: white;
-    font-size: 28px;
     font-weight: bold;
     text-shadow: 0px 0px 5px #000000;
-    width: 520px;
-    margin-left: 120px;
-    font-size: OpenSans;
+    font-family: OpenSans;
+    font-size: 16px;
+    text-align: center;
   }
 }
 
@@ -88,6 +89,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  width: 100%;
 
   .title {
     font-size: 36px;
@@ -96,6 +98,7 @@ export default {
   }
 
   .description {
+    width: 80%;
     font-size: 16px;
     color: #2a3142;
     max-width: 500px;
@@ -108,7 +111,7 @@ export default {
 
 .sec-product {
   background-color: #2a3142;
-  height: 440px;
+  min-height: 440px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,10 +126,9 @@ export default {
 
   .content {
     max-width: 680px;
-    width: 680px;
     flex: 1;
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     align-items: stretch;
     justify-content: center;
 
@@ -134,7 +136,7 @@ export default {
       flex: 1;
       display: flex;
       flex-direction: column;
-      margin: 20px;
+      margin: 20px 100px;
 
       .item {
         margin-bottom: 20px;
@@ -153,11 +155,11 @@ export default {
     }
 
     .image {
-      margin: 50px;
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       flex: 1;
+      min-height: 160px;
     }
   }
   
@@ -180,6 +182,7 @@ export default {
   }
 
   .description {
+    width: 80%;
     font-size: 16px;
     color: #2a3142;
     max-width: 500px;
@@ -190,8 +193,42 @@ export default {
     max-width: 600px;
 
     .contact-btn {
-      width: 400px;
+      width: 70%;
       margin: 0 auto;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .sec-banner {
+    .title {
+      width: 520px;
+      margin-left: 120px;
+      font-size: 28px;
+    }
+  }
+
+  .sec-mission {
+  }
+}
+
+@media (min-width: 768px) {
+  .sec-mission, .sec-about {
+    .description {
+      width: 520px;
+    }
+  }
+  .sec-product {
+    .content {
+      flex-direction: row;
+
+      .list {
+        margin: 20px;
+      }
+
+      .image {
+        margin: 50px;
+      }
     }
   }
 }

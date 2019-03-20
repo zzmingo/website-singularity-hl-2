@@ -8,12 +8,16 @@
       <img class="cover" :src="imgBaseUrl + website.what_we_do_image.url">
 
       <div class="sections">
-        <div class="section" v-for="(section, idx) in website.what_we_do_sections" :key="idx" :class="{ reverse: idx % 2 == 1 }">
+        <div class="section desktop" v-for="(section, idx) in website.what_we_do_sections" :key="idx" :class="{ reverse: idx % 2 == 1 }">
           <div class="info">
             <h3>{{section.title}}</h3>
             <p class="desc">{{section.content}}</p>
           </div>
           <div class="image" :style="getSectionImageStyle(section)"></div>
+        </div>
+        <div class="section mobile" v-for="(section, idx) in website.what_we_do_sections" :key="idx" :class="{ reverse: idx % 2 == 1 }">
+          <div class="image" :style="getSectionImageStyle(section)"><h3>{{section.title}}</h3></div>
+          <p class="desc">{{section.content}}</p>
         </div>
       </div>
     </div>
@@ -51,16 +55,21 @@ export default {
 
   > .content {
     margin: 0 auto;
-    max-width: 700px;
-    padding: 40px 0;
+    max-width: 740px;
+    padding: 40px 20px;
 
     > h2 {
       font-size: 28px;
       font-weight: bold;
       color: #3c3951;
+      padding: 0 20px;
+      margin: 0 auto;
+      margin-bottom: 20px;
     }
 
     > .desc {
+      padding: 0 20px;
+      margin: 0 auto;
       font-size: 14px;
       color: #58566a;
     }
@@ -106,6 +115,60 @@ export default {
       &.reverse {
         flex-direction: row-reverse;
       }
+    }
+  }
+
+  
+  .mobile {
+    display: block !important;
+    margin-bottom: 20px;
+
+    .image {
+      position: relative;
+      margin: 0 auto;
+      width: 70%;
+      height: 7.25rem;
+      background-size: contain !important;
+      background-position: 100% center !important;
+
+      h3 {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(0, -100%);
+        line-height: 1.5rem;
+        font-size: 1.375rem;
+      }
+    }
+
+    > .desc {
+      padding: 20px 20px;
+      margin: 0 auto;
+      font-size: 0.875rem;
+    }
+
+    &.reverse {
+      .image {
+        background-position: 0 center !important;
+
+        h3 {
+          right: 0;
+          left: 50%;
+        }
+      }
+    }
+  }
+
+  .desktop {
+    display: none !important;
+  }
+
+  @media (min-width: 576px) {
+    .mobile {
+      display: none !important;
+    }
+    .desktop {
+      display: flex !important;
     }
   }
 }
