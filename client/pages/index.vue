@@ -136,7 +136,7 @@ export default {
       flex: 1;
       display: flex;
       flex-direction: column;
-      margin: 20px 100px;
+      margin: 20px 60px;
 
       .item {
         margin-bottom: 20px;

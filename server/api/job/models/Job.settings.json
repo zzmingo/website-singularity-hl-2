@@ -26,6 +26,14 @@
     "visible": {
       "default": false,
       "type": "boolean"
+    },
+    "language": {
+      "default": "",
+      "type": "enumeration",
+      "enum": [
+        "en",
+        "zh-cn"
+      ]
     }
   }
 }
