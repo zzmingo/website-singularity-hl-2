@@ -32,7 +32,7 @@ export default {
     SLButton
   },
   async asyncData ({ store, $axios }) {
-    return $axios.$get(`/jobs?language=${store.state.lang}`).then(data => {
+    return $axios.$get(`/jobs?language=${store.state.lang}&visible=1`).then(data => {
       return {
         jobs: data
       }
@@ -71,6 +71,7 @@ export default {
     text-shadow: 0px 0px 5px #666666;
     width: 400px;
     font-size: OpenSans;
+    text-align: center;
   }
 
   .box {
