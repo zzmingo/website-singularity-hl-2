@@ -8,14 +8,14 @@
       <img class="cover" :src="imgBaseUrl + website.what_we_do_image.url">
 
       <div class="sections">
-        <div class="section desktop" v-for="(section, idx) in website.what_we_do_sections" :key="idx" :class="{ reverse: idx % 2 == 1 }">
+        <div class="section desktop" v-for="(section, idx) in website.what_we_do_sections" :key="'desktop' + section.id" :class="{ reverse: idx % 2 == 1 }">
           <div class="info">
             <h3>{{section.title}}</h3>
             <p class="desc">{{section.content}}</p>
           </div>
           <div class="image" :style="getSectionImageStyle(section)"></div>
         </div>
-        <div class="section mobile" v-for="(section, idx) in website.what_we_do_sections" :key="idx" :class="{ reverse: idx % 2 == 1 }">
+        <div class="section mobile" v-for="(section, idx) in website.what_we_do_sections" :key="'mobile' + section.id" :class="{ reverse: idx % 2 == 1 }">
           <div class="image" :style="getSectionImageStyle(section)"><h3>{{section.title}}</h3></div>
           <p class="desc">{{section.content}}</p>
         </div>
@@ -28,14 +28,6 @@
 
 export default {
   components: {
-  },
-  async fetch ({ store, params, $axios }) {
-    let strings = await $axios.$get(`/strings`)
-    store.commit('setStrings', strings)
-    let data = await $axios.$get(`/websites?language=${store.state.lang}`)
-    let sections = await $axios.$get(`/sections`)
-    data[0].what_we_do_sections = sections
-    store.commit('setWebsite', data[0])
   },
   computed: {
   },

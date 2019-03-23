@@ -39,14 +39,6 @@ export default {
   components: {
     SLButton
   },
-  async fetch ({ store, params, $axios }) {
-    let strings = await $axios.$get(`/strings`)
-    store.commit('setStrings', strings)
-    let data = await $axios.$get(`/websites?language=${store.state.lang}`)
-    let sections = await $axios.$get(`/sections`)
-    data[0].what_we_do_sections = sections
-    store.commit('setWebsite', data[0])
-  },
   computed: {
     bannerStyle() {
       let mobile = false
@@ -208,6 +200,7 @@ export default {
 @media (min-width: 576px) {
   .sec-banner {
     .title {
+      margin-top: 0;
       width: 520px;
       margin-left: 120px;
       font-size: 28px;
