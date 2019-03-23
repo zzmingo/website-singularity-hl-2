@@ -33,6 +33,7 @@
 
 <script>
 import SLButton from '~/components/SLButton.vue'
+import isMobile from 'is-mobile'
 
 export default {
   components: {
@@ -48,8 +49,12 @@ export default {
   },
   computed: {
     bannerStyle() {
+      let mobile = false
+      if (process.client) {
+        mobile = isMobile()
+      }
       return {
-        backgroundImage: `url(${this.imgBaseUrl}${this.website.index_banner.url})`
+        backgroundImage: `url(${this.imgBaseUrl}${mobile ? this.website.index_banner_mobile.url : this.website.index_banner.url})`
       }
     },
     productImageStyle() {
@@ -80,6 +85,7 @@ export default {
     font-family: OpenSans;
     font-size: 16px;
     text-align: center;
+    margin-top: 40%;
   }
 }
 

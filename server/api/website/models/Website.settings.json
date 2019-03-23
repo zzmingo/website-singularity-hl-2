@@ -151,6 +151,12 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "index_banner_mobile": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }

@@ -8,6 +8,6 @@ export default {
 
 <style lang="less" scoped>
 .logo {
-  height: 30px;
+  height: 28px;
 }
 </style>

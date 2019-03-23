@@ -194,7 +194,7 @@ export default {
         @border-bottom-width: 3px;
 
         min-width: 70px;
-        height: 30px;
+        height: 28px;
         text-align: center;
         list-style: none;
         cursor: pointer;
@@ -223,13 +223,13 @@ export default {
     
 
     .menu {
-      width: 41px;
+      width: 36px;
       height: 28px;
       background-image: url(~assets/icon_more.png);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      margin-left: 6px;
+      margin-left: 4px;
     }
   }
 
