@@ -31,8 +31,8 @@ export default {
   components: {
     SLButton
   },
-  async asyncData ({ $axios }) {
-    return $axios.$get('/jobs').then(data => {
+  async asyncData ({ store, $axios }) {
+    return $axios.$get(`/jobs?language=${store.state.lang}`).then(data => {
       return {
         jobs: data
       }

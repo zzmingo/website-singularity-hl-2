@@ -6,6 +6,9 @@ export const state = () => ({
 })
   
 export const mutations = {
+  setLang (state, lang) {
+    state.lang = lang
+  },
   setStrings (state, strings) {
     var stringMap = {}
     strings.forEach(string => {
@@ -20,12 +23,18 @@ export const mutations = {
 
 export const actions = {
 
-  async nuxtServerInit (store, { $axios }) {
+  async nuxtServerInit (store, { req, params, $axios }) {
+    var lang = req.host.indexOf('singularity-hl.ai') !== -1 ? 'en' : 'zh-cn'
+    if (req.query.lang) {
+      lang = req.query.lang
+    }
+    store.commit('setLang', lang)
     let strings = await $axios.$get(`/strings`)
     store.commit('setStrings', strings)
-    let data = await $axios.$get(`/websites?language=${store.state.lang}`)
-    let sections = await $axios.$get(`/sections`)
-    data[0].what_we_do_sections = sections
-    store.commit('setWebsite', data[0])
+    let data = await $axios.$get(`/websites?language=${lang}`)
+    let website = data[0]
+    let sections = await $axios.$get(`/sections?website=${website.id}`)
+    website.what_we_do_sections = sections
+    store.commit('setWebsite', website)
   },
 }

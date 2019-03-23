@@ -56,6 +56,7 @@ export default {
       font-size: 28px;
       font-weight: bold;
       color: #3c3951;
+      margin-bottom: 30px;
     }
 
     > .desc {
