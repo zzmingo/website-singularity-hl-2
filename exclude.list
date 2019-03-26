@@ -3,3 +3,4 @@ images
 exclude.list
 upload.sh
 ssh
+.git
