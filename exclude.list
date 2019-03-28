@@ -4,3 +4,5 @@ exclude.list
 upload.sh
 ssh
 .git
+server/node_modules
+client/node_modules

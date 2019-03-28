@@ -3,7 +3,7 @@ import Vue from 'vue'
 Vue.mixin({
   computed: {
     imgBaseUrl() {
-      return process.env.imgBaseUrl
+      return ""
     },
     website() {
       return this.$store && this.$store.state.website || {}

@@ -37,14 +37,13 @@ module.exports = {
   ],
 
   env: {
-    imgBaseUrl: 'http://localhost:1337',
   },
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~plugins/extend.js'
+    '~plugins/extend.js',
   ],
 
   /*
@@ -53,7 +52,12 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
   ],
+
+  proxy: {
+    '/uploads': 'http://localhost:1337'
+  },
   /*
   ** Axios module configuration
   */
