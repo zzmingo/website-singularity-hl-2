@@ -72,6 +72,7 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 0;
+  z-index: 999;
 
   ol {
     padding-block-start: 0px;
@@ -224,7 +225,7 @@ export default {
         display: none;
       }
     }
-    
+
 
     .menu {
       width: 36px;

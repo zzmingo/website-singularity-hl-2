@@ -4,7 +4,7 @@ export const state = () => ({
   strings: {},
 
 })
-  
+
 export const mutations = {
   setLang (state, lang) {
     state.lang = lang
@@ -24,7 +24,8 @@ export const mutations = {
 export const actions = {
 
   async nuxtServerInit (store, { req, params, $axios }) {
-    var lang = req.host.indexOf('singularity-hl.ai') !== -1 ? 'en' : 'zh-cn'
+    console.log(req.hostname)
+    var lang = req.hostname.indexOf('singularity-hl.ai') !== -1 ? 'en' : 'zh-cn'
     if (req.query.lang) {
       lang = req.query.lang
     }
