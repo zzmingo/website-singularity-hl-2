@@ -57,8 +57,13 @@ module.exports = {
 
   proxy: {
     '/uploads': 'http://localhost:1337',
-    '/admin': 'http://localhost:1337/admin',
-    '/jobs': 'http://localhost:1337/jobs',
+    '/admin': 'http://localhost:1337',
+    '/jobs': 'http://localhost:1337',
+    '/content-type-builder': 'http://localhost:1337',
+    '/users-permissions': 'http://localhost:1337',
+    '/settings-manager': 'http://localhost:1337',
+    '/content-manager': 'http://localhost:1337',
+    '/auth': 'http://localhost:1337'
   },
   /*
   ** Axios module configuration

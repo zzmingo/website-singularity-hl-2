@@ -54,13 +54,13 @@ export default {
       font-size: 28px;
       font-weight: bold;
       color: #3c3951;
-      padding: 0 20px;
+      padding: 0 0px;
       margin: 0 auto;
       margin-bottom: 20px;
     }
 
     > .desc {
-      padding: 0 20px;
+      padding: 0 0px;
       margin: 0 auto;
       font-size: 14px;
       color: #58566a;
