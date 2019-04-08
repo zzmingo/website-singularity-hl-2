@@ -21,7 +21,9 @@
             </div>
           </div>
           <div class="linkedin">
+            <a href="https://www.linkedin.com/company/singularity-ai?trk=ppro_cprof" target="_blank">
             <img class="linkedin" src="~/assets/31-linkedin.png">
+            </a>
           </div>
         </div>
       </div>
