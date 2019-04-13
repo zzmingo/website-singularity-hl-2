@@ -57,20 +57,17 @@ module.exports = {
 
   proxy: {
     '/uploads': 'http://localhost:1337',
-    '/admin': 'http://localhost:1337',
     '/jobs': 'http://localhost:1337',
-    '/content-type-builder': 'http://localhost:1337',
-    '/users-permissions': 'http://localhost:1337',
-    '/settings-manager': 'http://localhost:1337',
-    '/content-manager': 'http://localhost:1337',
-    '/auth': 'http://localhost:1337'
+    '/websites': 'http://localhost:1337',
+    '/sections': 'http://localhost:1337',
+    '/strings': 'http://localhost:1337',
   },
   /*
   ** Axios module configuration
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: 'http://localhost:1337',
+    // baseURL: '/',
   },
 
   /*
