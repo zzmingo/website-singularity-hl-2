@@ -10,6 +10,7 @@
 * vue
 * nuxt.js
 * strapi
+* pm2
 
 ```shell
 ## 启动strapi
