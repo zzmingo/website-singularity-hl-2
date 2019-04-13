@@ -10,8 +10,8 @@
           <li class="whatwedo" :class="{ active: isWhatWeDo }" @click="navigateTo('/whatwedo')">{{$string('whatwedo')}}</li>
           <li class="about" :class="{ active: isAbout }" @click="navigateTo('/about')">{{$string('about')}}</li>
           <li class="careers" :class="{ active: isCareers }" @click="navigateTo('/careers')">{{$string('careers')}}</li>
-          <li class="lang en" :class="{ active: this.lang === 'en' }">EN</li>
-          <li class="lang zh-cn" :class="{ active: this.lang === 'zh-cn' }">中文</li>
+          <li class="lang en" :class="{ active: this.lang === 'en' }" @click="navigateTo('http://www.singularity-hl.ai')">EN</li>
+          <li class="lang zh-cn" :class="{ active: this.lang === 'zh-cn' }" @click="navigateTo('http://www.singularity-hl.cn')">中文</li>
         </ol>
       </div>
       <div class="desktop">
