@@ -31,19 +31,15 @@ export default {
   components: {
     SLButton
   },
-  async asyncData ({ store, $axios }) {
-    return $axios.$get(`/jobs?language=${store.state.lang}&visible=1`).then(data => {
-      return {
-        jobs: data
-      }
-    })
-  },
   computed: {
     bannerStyle() {
       return {
         backgroundImage: `url(${this.imgBaseUrl}${this.website.careers_banner.url})`
       }
     },
+    jobs() {
+      return this.$store.state.jobs
+    }
   },
   methods: {
     onClickJob(job) {
